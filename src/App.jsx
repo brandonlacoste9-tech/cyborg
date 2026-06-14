@@ -56,16 +56,33 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section style={{ padding: '100px 20px', textAlign: 'center' }}>
-        <div className="container">
-          <h2 className="glitch-text" style={{ fontSize: '4rem', marginBottom: '20px', textTransform: 'uppercase' }}>
-            The Future of <br/><span style={{ color: 'var(--neon-blue)' }}>Browser Gaming</span>
+      <section style={{ 
+        padding: '100px 20px', 
+        textAlign: 'center',
+        backgroundImage: 'url(/hero-bg.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        borderBottom: '2px solid var(--neon-blue)',
+        boxShadow: '0 0 50px rgba(0, 243, 255, 0.2)'
+      }}>
+        <div className="container" style={{ 
+          backgroundColor: 'rgba(0,0,0,0.85)', 
+          padding: '50px 20px', 
+          borderRadius: '15px',
+          border: '1px solid rgba(0, 243, 255, 0.3)',
+          maxWidth: '800px'
+        }}>
+          <h2 className="glitch-text" style={{ fontSize: '4rem', marginBottom: '20px', textTransform: 'uppercase', textShadow: '0 0 20px var(--neon-blue)' }}>
+            GAMERS <br/><span style={{ color: 'var(--neon-blue)' }}>CYBORG</span>
           </h2>
-          <p style={{ fontSize: '1.5rem', color: '#aaa', marginBottom: '40px', maxWidth: '600px', margin: '0 auto 40px auto' }}>
-            No downloads. No installations. Just pure, unadulterated adrenaline. Connect to the Hell Yeah Games network now.
+          <p style={{ fontSize: '1.5rem', color: '#fff', marginBottom: '20px', fontWeight: 'bold' }}>
+            OVER 800+ OF YOUR FAVOURITE GAMES.
+          </p>
+          <p style={{ fontSize: '1.2rem', color: '#aaa', marginBottom: '40px' }}>
+            ALL IN ONE PLACE. ANYTIME. EVERYWHERE. <br/>FREE REGISTRATION. START PLAYING.
           </p>
           <button className="cyber-button" onClick={() => handleRedirect()} style={{ fontSize: '1.5rem', padding: '20px 40px' }}>
-            ENTER THE GRID <ChevronRight size={24} style={{ display: 'inline', verticalAlign: 'middle', marginLeft: '10px' }} />
+            JOIN THE ADVENTURE <ChevronRight size={24} style={{ display: 'inline', verticalAlign: 'middle', marginLeft: '10px' }} />
           </button>
         </div>
       </section>
