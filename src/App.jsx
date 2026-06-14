@@ -37,117 +37,29 @@ function App() {
   };
 
   return (
-    <div style={{ minHeight: '100vh', position: 'relative' }}>
-      <div className="cyber-grid"></div>
-      
-      {/* Navbar */}
-      <nav style={{ padding: '20px', borderBottom: '1px solid rgba(0, 243, 255, 0.2)', backgroundColor: 'var(--card-bg)', backdropFilter: 'blur(10px)' }}>
-        <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <Gamepad2 size={32} color="var(--neon-blue)" />
-            <h1 style={{ fontSize: '1.5rem', margin: 0, color: 'white', letterSpacing: '2px' }}>CYBORG GAMERS</h1>
-          </div>
-          <div>
-            <button className="cyber-button" onClick={() => handleRedirect()} style={{ fontSize: '0.9rem', padding: '10px 20px' }}>
-              ACCESS ARCADE
-            </button>
-          </div>
-        </div>
-      </nav>
-
-      {/* Hero Section */}
-      <section style={{ 
-        padding: '100px 20px', 
-        textAlign: 'center',
+    <div 
+      onClick={() => handleRedirect()}
+      style={{ 
+        width: '100vw', 
+        height: '100vh', 
         backgroundImage: 'url(/hero-bg.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        borderBottom: '2px solid var(--neon-blue)',
-        boxShadow: '0 0 50px rgba(0, 243, 255, 0.2)'
+        backgroundRepeat: 'no-repeat',
+        cursor: 'pointer',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}
+    >
+      {/* Fallback text in case the image hasn't been saved yet */}
+      <h1 style={{ 
+        color: 'transparent', 
+        textShadow: '0 0 20px rgba(0, 243, 255, 0)',
+        fontSize: '1px'
       }}>
-        <div className="container" style={{ 
-          backgroundColor: 'rgba(0,0,0,0.85)', 
-          padding: '50px 20px', 
-          borderRadius: '15px',
-          border: '1px solid rgba(0, 243, 255, 0.3)',
-          maxWidth: '800px'
-        }}>
-          <h2 className="glitch-text" style={{ fontSize: '4rem', marginBottom: '20px', textTransform: 'uppercase', textShadow: '0 0 20px var(--neon-blue)' }}>
-            GAMERS <br/><span style={{ color: 'var(--neon-blue)' }}>CYBORG</span>
-          </h2>
-          <p style={{ fontSize: '1.5rem', color: '#fff', marginBottom: '20px', fontWeight: 'bold' }}>
-            OVER 800+ OF YOUR FAVOURITE GAMES.
-          </p>
-          <p style={{ fontSize: '1.2rem', color: '#aaa', marginBottom: '40px' }}>
-            ALL IN ONE PLACE. ANYTIME. EVERYWHERE. <br/>FREE REGISTRATION. START PLAYING.
-          </p>
-          <button className="cyber-button" onClick={() => handleRedirect()} style={{ fontSize: '1.5rem', padding: '20px 40px' }}>
-            JOIN THE ADVENTURE <ChevronRight size={24} style={{ display: 'inline', verticalAlign: 'middle', marginLeft: '10px' }} />
-          </button>
-        </div>
-      </section>
-
-      {/* Features */}
-      <section style={{ padding: '60px 20px', backgroundColor: 'var(--card-bg)' }}>
-        <div className="container" style={{ display: 'flex', justifyContent: 'center', gap: '40px', flexWrap: 'wrap' }}>
-          <div style={{ textAlign: 'center', flex: '1', minWidth: '250px' }}>
-            <Zap size={48} color="var(--neon-green)" style={{ margin: '0 auto 20px auto' }} />
-            <h3 style={{ fontSize: '1.5rem', marginBottom: '10px' }}>Instant Play</h3>
-            <p style={{ color: '#aaa' }}>Jump straight into the action with zero load times.</p>
-          </div>
-          <div style={{ textAlign: 'center', flex: '1', minWidth: '250px' }}>
-            <Trophy size={48} color="var(--neon-pink)" style={{ margin: '0 auto 20px auto' }} />
-            <h3 style={{ fontSize: '1.5rem', marginBottom: '10px' }}>800+ Games</h3>
-            <p style={{ color: '#aaa' }}>The largest collection of premium browser games.</p>
-          </div>
-          <div style={{ textAlign: 'center', flex: '1', minWidth: '250px' }}>
-            <Gamepad2 size={48} color="var(--neon-blue)" style={{ margin: '0 auto 20px auto' }} />
-            <h3 style={{ fontSize: '1.5rem', marginBottom: '10px' }}>Cross-Platform</h3>
-            <p style={{ color: '#aaa' }}>Play on your PC, tablet, or cybernetic implant.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Games */}
-      <section style={{ padding: '80px 20px' }}>
-        <div className="container">
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '40px', textAlign: 'center', color: 'var(--neon-blue)' }}>TOP PROTOCOLS</h2>
-          
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px' }}>
-            {FEATURED_GAMES.map((game, index) => (
-              <div key={index} style={{ 
-                backgroundColor: 'var(--card-bg)', 
-                border: '1px solid rgba(0, 243, 255, 0.2)',
-                borderRadius: '8px',
-                overflow: 'hidden',
-                transition: 'transform 0.3s ease'
-              }}
-              className="game-card"
-              >
-                <img src={game.image} alt={game.title} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
-                <div style={{ padding: '20px' }}>
-                  <span style={{ color: 'var(--neon-pink)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '1px' }}>{game.tag}</span>
-                  <h3 style={{ fontSize: '1.5rem', margin: '10px 0' }}>{game.title}</h3>
-                  <button className="cyber-button" onClick={() => handleRedirect(game.url)} style={{ width: '100%', padding: '10px', fontSize: '1rem', marginTop: '10px' }}>
-                    INITIALIZE
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div style={{ textAlign: 'center', marginTop: '60px' }}>
-            <button className="cyber-button" onClick={() => handleRedirect()} style={{ backgroundColor: 'rgba(0, 243, 255, 0.1)' }}>
-              VIEW ALL 800+ PROTOCOLS
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer style={{ padding: '40px 20px', backgroundColor: '#000', borderTop: '1px solid rgba(0, 243, 255, 0.2)', textAlign: 'center' }}>
-        <p style={{ color: '#666' }}>© 2026 Cyborg Gamers Network. Powered by Hell Yeah Games.</p>
-      </footer>
+        ENTER CYBORG GAMERS
+      </h1>
     </div>
   );
 }
